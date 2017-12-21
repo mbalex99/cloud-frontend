@@ -125,7 +125,7 @@ export class AnalyticsScene extends React.Component<{}, {}> {
                 <Row>
                     <Col span={24}>
                         <Content style={{ margin: '24px 0 0 24px' }}>
-                            <h1>Analytics</h1>
+                            <h1><Icon type="bar-chart" />Analytics</h1>
                         </Content>
                     </Col>
                 </Row>

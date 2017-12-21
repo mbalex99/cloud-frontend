@@ -1,10 +1,11 @@
 import * as React from 'react'
 import * as faker from 'faker'
 import * as _ from 'lodash'
-import { List, Layout, Row, Col, Icon, Menu, Table, Checkbox } from 'antd'
+import { List, Layout, Row, Col, Icon, Menu, Table, Checkbox, Input } from 'antd'
 import { Redirect } from 'react-router-dom'
 const Sider = Layout.Sider
 const Content = Layout.Content
+const Search = Input.Search
 
 
 interface Room {
@@ -109,12 +110,12 @@ export class DataScene extends React.Component<{}, DataSceneState> {
                 {redirect}
                 <Col span={24}>
                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280, height: '100%' }}>
-                        <h1>Data Browser</h1>
+                        <h1><Icon type="database" /> Data Browser</h1>
                         <Layout style={{ padding: '24px 0', background: '#fff' }}>
                             <Sider width={200} style={{ background: '#fff' }}>
                                 <Menu
                                     mode="inline"
-                                    defaultSelectedKeys={['4']}
+                                    defaultSelectedKeys={['2']}
                                     defaultOpenKeys={['sub1']}
                                     style={{ height: '100%' }}
                                 >
@@ -127,6 +128,12 @@ export class DataScene extends React.Component<{}, DataSceneState> {
                                 </Menu>
                             </Sider>
                             <Content style={{ padding: '0 24px', minHeight: 280 }}>
+                                <Search
+                                    style={{ marginTop: 16, marginBottom: 16 }}
+                                    placeholder="Filter data"
+                                    onSearch={value => console.log(value)}
+                                    enterButton
+                                />
                                 <Table bordered={true} pagination={{ pageSize: 25 }} size="small" rowKey="roomId" dataSource={this.state.rooms} columns={COLUMNS} />
                             </Content>
                         </Layout>
