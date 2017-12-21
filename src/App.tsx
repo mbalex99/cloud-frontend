@@ -19,9 +19,6 @@ import { Redirect, Switch } from 'react-router';
 import { createBrowserHistory } from 'history'
 const history = createBrowserHistory()
 
-export interface AppProps {
-}
-
 export class App extends React.Component {
     render() {
         return (

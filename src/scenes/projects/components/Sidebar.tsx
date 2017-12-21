@@ -101,8 +101,8 @@ export class Sidebar extends React.Component<SidebarProps> {
                         <Icon type="code-o" />
                         <span>Logs</span>
                     </Menu.Item>
-                    <Menu.Item key="settings">
-                        <Icon type="edit" />
+                    <Menu.Item key="fx">
+                        <Icon type="rocket" />
                         <span>Functions</span>
                     </Menu.Item>
                     <Menu.Item key="settings">
