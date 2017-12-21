@@ -15,6 +15,7 @@ import { DataScene } from './scenes/data/DataScene'
 import { UsersScene } from './scenes/users/UsersScene'
 import { LogsScene } from './scenes/logs/LogsScene';
 import { Switch } from 'react-router';
+import { AnalyticsScene } from './scenes/analytics/AnalyticsScene';
 
 interface ProjectsState {
     collapsed: boolean
@@ -119,6 +120,7 @@ export class ProjectsScene extends React.Component<Partial<RouteComponentProps<{
                         <Route path='/projects/:projectId/data' component={DataScene} />
                         <Route path='/projects/:projectId/users' component={UsersScene} />
                         <Route path='/projects/:projectId/logs' component={LogsScene} />
+                        <Route path='/projects/:projectId/analytics' component={AnalyticsScene} />
                     </Switch>
                     <Footer style={{ textAlign: 'center' }}>
                         Realm Sync ©2017 realm.io {this.props.location.pathname}

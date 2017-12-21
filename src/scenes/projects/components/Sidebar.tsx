@@ -56,6 +56,9 @@ export class Sidebar extends React.Component<SidebarProps> {
             case 'logs':
                 this.props.history.push(`/projects/${this.props.projectId}/logs`)
                 break
+            case 'analytics':
+                this.props.history.push(`/projects/${this.props.projectId}/analytics`)
+                break
             default:
             break;
         }
@@ -90,7 +93,7 @@ export class Sidebar extends React.Component<SidebarProps> {
                         <Icon type="lock" />
                         <span>Permissions</span>
                     </Menu.Item>
-                    <Menu.Item key="stats">
+                    <Menu.Item key="analytics">
                         <Icon type="dot-chart" />
                         <span>Analytics</span>
                     </Menu.Item>
