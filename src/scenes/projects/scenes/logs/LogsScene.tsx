@@ -50,7 +50,7 @@ export class LogsScene extends React.Component<{}, LogState> {
             if (l.type === 'warning') {
                 color = 'orange'
             }
-            const tag = <span style={ { width: 90, color: color } }>{l.type}</span>
+            const tag = <span style={ { width: 90, color: color, fontSize: '12' } }>{l.type}</span>
             return (
                 <span style={ {display: 'inline', textOverflow: 'ellipsis', overflow: 'hidden', width: '100%' } } >{moment(l.timestamp).format()}  {tag}  {l.text}<br/></span>
             )
