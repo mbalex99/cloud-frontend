@@ -28,10 +28,11 @@
     "lint": "npm run lint:ts && npm run lint:sass",
     "lint:ts": "tslint './src/**/*.ts*' --format stylish --force",
     "lint:sass": "stylelint ./src/**/*.scss",
-    "start": "npm run start-dev",
+    "start": "node ./server.js",
     "start-dev": "webpack-dev-server --config=configs/webpack/dev.js",
     "start-prod": "npm run build && node express.js",
-    "test": "jest --watch --coverage --config=configs/jest.json"
+    "test": "jest --watch --coverage --config=configs/jest.json",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "@types/faker": "^4.1.2",
@@ -84,5 +85,8 @@
     "react-router-dom": "^4.2.2",
     "recharts": "^1.0.0-beta.6"
   },
-  "postcss": {}
+  "postcss": {},
+  "engines": {
+    "node": ">=8.1.x"
+  }
 }

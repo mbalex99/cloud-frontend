@@ -70,32 +70,34 @@ export class LoginScene extends React.Component<Partial<RouteComponentProps<{}>>
         const mainButtonText = this.state.mode === 'register' ? 'Register Account' : 'Login'
 
         return (
-            <Card style={CARD_STYLE}>
-                <Form onSubmit={this.handleSubmit}>
-                    <div style={LOGO_CONTAINER_STYLE}>
-                        <img src={logo} style={LOGO_STYLE} />
-                        <h1 style={LOGO_TITLE_STYLE} >Realm Cloud</h1>
-                    </div>
-                    <FormItem>
-                        <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
-                    </FormItem>
-                    <FormItem>
-                        <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
-                    </FormItem>
-                    <FormItem>
-                        <Checkbox>Remember me</Checkbox>
-                        <a style={FORGOT_STYLE} href="">Forgot password</a>
-                        <Button type="primary" htmlType="submit" style={FORM_BUTTON}>
-                            {mainButtonText}
-                        </Button>
-                        <Button style={FORM_BUTTON}>
-                            <Icon type="github" />
-                            Login with GitHub
-                    </Button>
-                        Or {toggleLink}
-                    </FormItem>
-                </Form>
-            </Card>
+            <div>
+                <Card style={CARD_STYLE}>
+                    <Form onSubmit={this.handleSubmit}>
+                        <div style={LOGO_CONTAINER_STYLE}>
+                            <img src={logo} style={LOGO_STYLE} />
+                            <h1 style={LOGO_TITLE_STYLE} >Realm Cloud</h1>
+                        </div>
+                        <FormItem>
+                            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" />
+                        </FormItem>
+                        <FormItem>
+                            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                        </FormItem>
+                        <FormItem>
+                            <Checkbox>Remember me</Checkbox>
+                            <a style={FORGOT_STYLE} href="">Forgot password</a>
+                            <Button type="primary" htmlType="submit" style={FORM_BUTTON}>
+                                {mainButtonText}
+                            </Button>
+                            <Button style={FORM_BUTTON}>
+                                <Icon type="github" />
+                                Login with GitHub
+                            </Button>
+                            Or {toggleLink}
+                        </FormItem>
+                    </Form>
+                </Card>
+            </div>
         );
     }
 }

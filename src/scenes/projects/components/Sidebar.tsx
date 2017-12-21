@@ -27,7 +27,7 @@ const PROJECT_NAME_STYLE = {
     marginLeft: '16px'
 }
 
-interface SidebarProps  {
+interface SidebarProps {
     collapsed: boolean
     projectId: string
     history: History
@@ -60,7 +60,7 @@ export class Sidebar extends React.Component<SidebarProps> {
                 this.props.history.push(`/projects/${this.props.projectId}/analytics`)
                 break
             default:
-            break;
+                break;
         }
     }
 
@@ -100,6 +100,10 @@ export class Sidebar extends React.Component<SidebarProps> {
                     <Menu.Item key="logs">
                         <Icon type="code-o" />
                         <span>Logs</span>
+                    </Menu.Item>
+                    <Menu.Item key="settings">
+                        <Icon type="edit" />
+                        <span>Functions</span>
                     </Menu.Item>
                     <Menu.Item key="settings">
                         <Icon type="edit" />
