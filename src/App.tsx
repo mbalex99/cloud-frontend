@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from 'antd';
 
 import {
-    BrowserRouter as Router,
+    Router,
     Route,
     Link
 } from 'react-router-dom'
@@ -16,6 +16,9 @@ import { LoginScene } from './scenes/login/LoginScene'
 import { ProjectsScene } from './scenes/projects/ProjectsScene'
 import { Redirect, Switch } from 'react-router';
 
+import { createBrowserHistory } from 'history'
+const history = createBrowserHistory()
+
 export interface AppProps {
 }
 
@@ -23,12 +26,11 @@ export class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <Router>
+                <Router history={history}>
                     <Switch>
                         <Route exact path="/" component={LoginScene} />
                         <Route path="/login" component={LoginScene} />
-                        <Route path="/projects" component={ProjectsScene} />
-                        <Redirect to="/" />
+                        <Route path="/projects/:projectId?" component={ProjectsScene} />
                     </Switch>
                 </Router>
             </div>

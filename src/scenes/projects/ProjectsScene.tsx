@@ -5,16 +5,20 @@ const { Header, Content, Footer } = Layout;
 import {
     BrowserRouter as Router,
     Route,
-    RouteComponentProps
+    RouteComponentProps,
+    Redirect
 } from 'react-router-dom'
 
 import { Sidebar } from './components/Sidebar'
 import { ListScene } from './scenes/list/ListScene';
 import { DataScene } from './scenes/data/DataScene'
+import { UsersScene } from './scenes/users/UsersScene'
+import { LogsScene } from './scenes/logs/LogsScene';
 import { Switch } from 'react-router';
 
 interface ProjectsState {
     collapsed: boolean
+    navigate: string
 }
 
 const TRIGGER_STYLE = {
@@ -56,7 +60,8 @@ export class ProjectsScene extends React.Component<Partial<RouteComponentProps<{
     constructor(props: {}) {
         super(props)
         this.state = {
-            collapsed: false
+            collapsed: false,
+            navigate: undefined
         }
     }
 
@@ -66,9 +71,17 @@ export class ProjectsScene extends React.Component<Partial<RouteComponentProps<{
         })
     }
 
+    goBackToLogin = () => {
+        this.props.history.push('/login')
+    }
+
+    goToProjectsButtonDidClick = () => {
+        this.props.history.push('/projects')
+    }
+
     render() {
 
-        const sidebar = this.props.location.pathname === '/projects' ? null : (<Sidebar collapsed={this.state.collapsed} />)
+        const sidebar = this.props.location.pathname === '/projects' ? null : (<Sidebar collapsed={this.state.collapsed} projectId={this.props.match.params["projectId"]} history={this.props.history} />)
         const triggerIcon = this.props.location.pathname === '/projects' ? null : (<Icon
             style={TRIGGER_STYLE}
             type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
@@ -78,8 +91,10 @@ export class ProjectsScene extends React.Component<Partial<RouteComponentProps<{
         const projectsListIcon = this.props.location.pathname === '/projects' ? null : (<Icon
             style={PROJECTS_STYLE}
             type="bars"
-            onClick={this.toggle}
+            onClick={this.goToProjectsButtonDidClick}
         />)
+
+        const redirect = this.state.navigate ? <Redirect to={this.state.navigate} /> : null
 
         return (
             <Layout style={{ height: '100vh' }}>
@@ -96,15 +111,15 @@ export class ProjectsScene extends React.Component<Partial<RouteComponentProps<{
                         <Icon
                             style={LOGOUT_STYLE}
                             type="logout"
-                            onClick={this.toggle}
+                            onClick={this.goBackToLogin}
                         />
                     </Header>
-                    <Router>
-                        <Switch>
-                            <Route exact path='/projects' component={ListScene} />
-                            <Route path='/projects/:projectId/data' component={DataScene} />
-                        </Switch>
-                    </Router>
+                    <Switch>
+                        <Route exact={true} path='/projects' component={ListScene} />
+                        <Route path='/projects/:projectId/data' component={DataScene} />
+                        <Route path='/projects/:projectId/users' component={UsersScene} />
+                        <Route path='/projects/:projectId/logs' component={LogsScene} />
+                    </Switch>
                     <Footer style={{ textAlign: 'center' }}>
                         Realm Sync ©2017 realm.io {this.props.location.pathname}
                     </Footer>
