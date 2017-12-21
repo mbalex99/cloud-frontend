@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Layout, Menu, Icon } from 'antd';
+import { RouteComponentProps } from 'react-router';
 const { Sider } = Layout;
 
 
@@ -9,32 +10,59 @@ const LOGO_STYLE = {
     margin: '16px'
 }
 
-interface SidebarProps {
+const PROJECT_NAME_STYLE = {
+    fontSize: '16px',
+    color: 'white',
+    height: '32px',
+    margin: '16px'
+}
+
+interface SidebarProps extends Partial<RouteComponentProps<{}>> {
     collapsed: boolean
 }
 
-export class Sidebar extends React.Component<Partial<SidebarProps>, {}> {
+export class Sidebar extends React.Component<SidebarProps, {}> {
 
     render() {
         return (
             <Sider
                 trigger={null}
                 collapsible={true}
-                collapsed={this.props.collapsed}
-            >
+                collapsed={this.props.collapsed}>
                 <div style={LOGO_STYLE} />
-                <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                    <Menu.Item key="2">
-                        <Icon type="video-camera" />
+                <h1 style={PROJECT_NAME_STYLE}>Example Project</h1>
+                <Menu theme="dark" mode="inline" defaultSelectedKeys={['database']}>
+                    <Menu.Item key="database">
+                        <Icon type="database" />
                         <span>Data</span>
                     </Menu.Item>
                     <Menu.Item key="user">
                         <Icon type="user" />
                         <span>Users</span>
                     </Menu.Item>
-                    <Menu.Item key="3">
-                        <Icon type="upload" />
-                        <span>nav 3</span>
+                    <Menu.Item key="auth">
+                        <Icon type="login" />
+                        <span>Authentication</span>
+                    </Menu.Item>
+                    <Menu.Item key="login">
+                        <Icon type="lock" />
+                        <span>Permissions</span>
+                    </Menu.Item>
+                    <Menu.Item key="stats">
+                        <Icon type="dot-chart" />
+                        <span>Analytics</span>
+                    </Menu.Item>
+                    <Menu.Item key="logs">
+                        <Icon type="code-o" />
+                        <span>Logs</span>
+                    </Menu.Item>
+                    <Menu.Item key="settings">
+                        <Icon type="edit" />
+                        <span>Settings</span>
+                    </Menu.Item>
+                    <Menu.Item key="help" style={{ bottom: 0, position: 'absolute' }}>
+                        <Icon type="question-circle-o" />
+                        <span>Help</span>
                     </Menu.Item>
                 </Menu>
             </Sider>

@@ -14,6 +14,7 @@ const reactLogo = require("./assets/img/logo.svg");
 import { LandingScene } from './scenes/landing/LandingScene'
 import { LoginScene } from './scenes/login/LoginScene'
 import { ProjectsScene } from './scenes/projects/ProjectsScene'
+import { Redirect, Switch } from 'react-router';
 
 export interface AppProps {
 }
@@ -23,11 +24,12 @@ export class App extends React.Component {
         return (
             <div className="App">
                 <Router>
-                    <div>
+                    <Switch>
                         <Route exact path="/" component={LoginScene} />
                         <Route path="/login" component={LoginScene} />
                         <Route path="/projects" component={ProjectsScene} />
-                    </div>
+                        <Redirect to="/" />
+                    </Switch>
                 </Router>
             </div>
         );
