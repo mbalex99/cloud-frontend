@@ -99,6 +99,7 @@ export class ListScene extends React.Component<{}, ListState> {
 
 
         return (
+            <div>
             <Row>
                 <Col span={8}>
                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 600 }}>
@@ -170,11 +171,11 @@ export class ListScene extends React.Component<{}, ListState> {
                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 600 }}>
                         <h1>Search our Docs</h1>
                         <span>
-                            Find the resources quickly 
+                            Find the resources quickly
                         </span>
                         <Search
                             style={{ marginTop: 16, marginBottom: 16 }}
-                            placeholder="Search for Your Project"
+                            placeholder="Search our docs and FAQ"
                             onSearch={value => console.log(value)}
                             enterButton
                         />
@@ -193,6 +194,7 @@ export class ListScene extends React.Component<{}, ListState> {
                     </Content>
                 </Col>
             </Row>
+            </div>
         )
     }
 
