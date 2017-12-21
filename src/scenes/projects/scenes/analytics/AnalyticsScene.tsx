@@ -130,7 +130,7 @@ export class AnalyticsScene extends React.Component<{}, {}> {
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={8}>
+                    <Col span={12}>
                         <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', height: 400 }}>
                             <h2>Daily Users</h2>
                             <div style={{ top: 100, bottom: 36, left: 24, right: 24, position: 'absolute' }}>
@@ -138,7 +138,7 @@ export class AnalyticsScene extends React.Component<{}, {}> {
                             </div>
                         </Content>
                     </Col>
-                    <Col span={8}>
+                    <Col span={12}>
                         <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', height: 400 }}>
                             <h2>Monthly Users</h2>
                             <div style={{ top: 100, bottom: 36, left: 24, right: 24, position: 'absolute' }}>
@@ -146,7 +146,9 @@ export class AnalyticsScene extends React.Component<{}, {}> {
                             </div>
                         </Content>
                     </Col>
-                    <Col span={8}>
+                </Row>
+                <Row>
+                    <Col span={12}>
                         <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', height: 400 }}>
                             <h2>Analytics</h2>
                             <Content>
@@ -156,9 +158,7 @@ export class AnalyticsScene extends React.Component<{}, {}> {
                             </Content>
                         </Content>
                     </Col>
-                </Row>
-                <Row>
-                    <Col span={8}>
+                    <Col span={12}>
                         <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', height: 400 }}>
                             <h2>Data Usage</h2>
                             <div style={{ top: 100, bottom: 36, left: 24, right: 24, position: 'absolute' }}>
@@ -166,7 +166,9 @@ export class AnalyticsScene extends React.Component<{}, {}> {
                             </div>
                         </Content>
                     </Col>
-                    <Col span={8}>
+                </Row>
+                <Row>
+                    <Col span={12}>
                         <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', height: 400 }}>
                             <h2>Total Revenue $USD</h2>
                             <div style={{ top: 100, bottom: 36, left: 24, right: 24, position: 'absolute' }}>
@@ -174,7 +176,7 @@ export class AnalyticsScene extends React.Component<{}, {}> {
                             </div>
                         </Content>
                     </Col>
-                    <Col span={8}>
+                    <Col span={12}>
                         <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', height: 400 }}>
                             <h2>Engagements per User</h2>
                             <Content>
