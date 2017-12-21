@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { List, Layout, Row, Col, Icon, Avatar } from 'antd'
+import { List, Layout, Row, Col, Icon, Avatar, Input } from 'antd'
 import * as Recharts from 'recharts'
 import * as faker from 'faker'
 import { LineChart, Line } from 'recharts';
 
 const Content = Layout.Content
+const Search = Input.Search
 
 interface Project {
     projectId: string
@@ -90,6 +91,12 @@ export class ListScene extends React.Component<{}, ListState> {
                         <span>
                             <a><Icon type="file-text" />View the Docs</a>
                         </span>
+                        <Search
+                            style={ { marginTop: 16, marginBottom: 16 } }
+                            placeholder="Search for Your Project"
+                            onSearch={value => console.log(value)}
+                            enterButton
+                        />
                         <List
                             itemLayout="horizontal"
                             dataSource={this.state.projects}

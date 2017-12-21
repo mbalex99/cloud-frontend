@@ -5,7 +5,7 @@ import * as moment from 'moment'
 import { List, Layout, Row, Col, Icon, Menu, Table, Checkbox } from 'antd'
 import { Button } from 'antd/lib/radio';
 
-import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, AreaChart, } from 'recharts'
+import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, AreaChart, BarChart, } from 'recharts'
 
 const Sider = Layout.Sider
 const Content = Layout.Content
@@ -103,17 +103,17 @@ export class AnalyticsScene extends React.Component<{}, {}> {
 
         return (
             <ResponsiveContainer>
-                <ComposedChart width={600} height={400} data={data}
-                    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+                <BarChart width={600} height={300} data={data}
+                    margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                     <XAxis dataKey="name" />
-                    <YAxis />
+                    <YAxis yAxisId="left" orientation="left" />
+                    <YAxis yAxisId="right" orientation="right" />
+                    <CartesianGrid strokeDasharray="3 3" />
                     <Tooltip />
                     <Legend />
-                    <CartesianGrid stroke='#f5f5f5' />
-                    <Area type='monotone' dataKey='amt' fill='#87D37C' stroke='#87D37C' />
-                    <Bar dataKey='pv' barSize={20} fill='#F58F84' />
-                    <Line type='monotone' dataKey='uv' stroke='#F62459' />
-                </ComposedChart>
+                    <Bar yAxisId="left" dataKey="pv" fill="#8884d8" />
+                    <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" />
+                </BarChart>
             </ResponsiveContainer>
         )
     }

@@ -51,7 +51,7 @@ export class LogsScene extends React.Component<{}, LogState> {
             }
             const tag = <span style={ { width: 90, color: color } }>{l.type}</span>
             return (
-                <span>{moment(l.timestamp).format()}  {tag}  {l.text}<br/></span>
+                <span style={ {display: 'inline', textOverflow: 'ellipsis', overflow: 'hidden', width: '100%' } } >{moment(l.timestamp).format()}  {tag}  {l.text}<br/></span>
             )
         })
 
